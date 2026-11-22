@@ -1,0 +1,12 @@
+
+pandas
+numpy
+scikit-learn
+rdkit
+matplotlib
+seaborn
+flask
+mlflow
+joblib
+pytest
+requests

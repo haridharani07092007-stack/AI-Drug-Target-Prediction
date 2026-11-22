@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Virtual Screening Results</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>Virtual Screening Results</h1>
+</header>
+
+<main class="container">
+
+    <h2>Ranked Chemical Compounds</h2>
+
+    {% if records %}
+
+    <table>
+        <tr>
+            <th>Compound</th>
+            <th>Prediction</th>
+            <th>Active Probability</th>
+        </tr>
+
+        {% for row in records %}
+        <tr>
+            <td>{{ row.Compound }}</td>
+            <td>{{ row.Prediction }}</td>
+            <td>{{ row.Active_Probability }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    {% else %}
+        <p>No screening results available.</p>
+    {% endif %}
+
+    <a href="/">Back to Prediction</a>
+
+</main>
+
+</body>
+</html>

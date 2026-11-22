@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Drug Target Prediction</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>AI Drug Target Prediction</h1>
+        <p>Intelligent Drug Discovery and Virtual Screening</p>
+    </header>
+
+    <main class="container">
+
+        <h2>Drug Target Prediction</h2>
+
+        <form action="/predict" method="POST">
+
+            <label>Compound Name</label>
+            <input type="text"
+                   name="compound"
+                   placeholder="Enter compound name"
+                   required>
+
+            <label>SMILES Chemical Structure</label>
+            <textarea name="smiles"
+                      placeholder="Enter SMILES structure"
+                      required></textarea>
+
+            <button type="submit">
+                Predict Activity
+            </button>
+
+        </form>
+
+        {% if result %}
+
+        <div class="result">
+
+            <h2>Prediction Result</h2>
+
+            <p>Compound: {{ result.compound }}</p>
+
+            <p>Prediction: {{ result.prediction }}</p>
+
+            <p>Active-class probability:
+               {{ result.probability }}%
+            </p>
+
+        </div>
+
+        {% endif %}
+
+        {% if error %}
+        <div class="error">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <a href="/screening" class="link">
+            View Virtual Screening Results
+        </a>
+
+    </main>
+
+</body>
+</html>

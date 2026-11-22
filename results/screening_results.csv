@@ -1,0 +1,5 @@
+Compound,Prediction,Active_Probability
+Caffeine,Inactive,0.4854
+Benzene,Inactive,0.2254
+Aspirin,Inactive,0.2149
+Ethanol,Inactive,0.1873
